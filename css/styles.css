@@ -4,7 +4,7 @@ body {
     font-family: 'Work Sans', sans-serif;
 }
 
-/* .details-arrow-circle{
+.details-btn-style{
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -12,12 +12,14 @@ body {
     text-align: center;
     cursor: pointer;
 }
-.details-arrow-circle:hover{
+
+.details-btn-style:hover{
     background-color: rgb(228, 204, 204);
 }
+
 .details-arrow{
     color: #EB5757;
-} */
+}
 
 .modal-main-div{
     width: 80%;
