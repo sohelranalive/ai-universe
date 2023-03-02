@@ -1,0 +1,13 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.arrow-circle{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: lightcoral;
+    text-align: center;
+}
