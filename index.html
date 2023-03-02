@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
     <header class="container text-center mt-3 fw-bold">
         <h1>AI Universe Hub</h1>
         <button class="btn btn-danger p-2">Sort By Date</button>
@@ -28,10 +27,53 @@
                 <!-- All Data Will Show Here -->
             </div>
         </section>
-        <!-- See more section -->
+        <!-- See more section Start-->
         <section class="container mt-4">
             <button class="btn btn-danger p-2 d-none" id="show-all" onclick="showAllContent()">See More</button>
         </section>
+        <!-- See more section end -->
+
+        <!-- modal section start -->
+        <section>
+            <div class="modal fade" id="contentDetailsModal" tabindex="-1" aria-labelledby="contentDetailsModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-md-down">
+                    <div class="modal-content">
+                        <!-- <div class="modal-header"> -->
+                            <!-- <h1 class="modal-title fs-5" id="contentDetailsModalLabel">Modal title</h1> -->
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <!-- </div> -->
+                        <div class="modal-body" id="modal-content">
+                            <!-- <div class="modal-main-div d-flex justify-content-center align-items-center">
+                                <div class="modal-sub-div1 h-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit minus odit asperiores consequatur rerum animi suscipit dicta, maiores quas, in obcaecati voluptate expedita numquam similique voluptas provident magnam. Illo autem consequatur ullam, esse, quaerat deleniti in numquam enim, maxime molestiae perspiciatis vitae aliquid tenetur blanditiis laboriosam. Enim at impedit odit.</div>
+                                <div class="modal-sub-div1 h-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis provident esse officia porro quas suscipit nobis, modi est quia eveniet debitis molestias dignissimos? Fugiat, iusto! Pariatur vel quasi est rem.</div>
+                            </div> -->
+                            <!-- <div class="row row-cols-1 row-cols-md-2 g-4 modal-main-div">
+                                <div class="col">
+                                  <div class="card h-100">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Card title</h5>
+                                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card h-100">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Card title</h5>
+                                      <p class="card-text">This is a short card.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- modal section end -->
 
     </main>
 

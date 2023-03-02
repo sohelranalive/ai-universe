@@ -4,10 +4,22 @@ body {
     font-family: 'Work Sans', sans-serif;
 }
 
-.arrow-circle{
+/* .details-arrow-circle{
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background-color: lightcoral;
+    background-color: #FEF7F7;
     text-align: center;
+    cursor: pointer;
+}
+.details-arrow-circle:hover{
+    background-color: rgb(228, 204, 204);
+}
+.details-arrow{
+    color: #EB5757;
+} */
+
+.modal-main-div{
+    width: 80%;
+    margin: 30px auto 50px;
 }
