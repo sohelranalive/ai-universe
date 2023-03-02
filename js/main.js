@@ -1,12 +1,22 @@
-const fetchAllData = async () => {
+const fetchData = async (contentCount) => {
     const url = 'https://openapi.programming-hero.com/api/ai/tools';
     const res = await fetch(url);
     const data = await res.json();
-    showAllData(data.data.tools);
+    showContent(data.data.tools, contentCount);
 }
 
-const showAllData = data =>{
+const showContent = (data, contentCount) =>{
     const dataContainer = document.getElementById('data-container');
+    dataContainer.innerText = '';
+    const showAll = document.getElementById('show-all');
+    if(contentCount && data.length > 6){
+        data = data.slice(0, 6);
+        showAll.classList.remove('d-none')
+    }
+    else{
+      showAll.classList.add('d-none')
+    }
+
     data.forEach(singleData => {
         console.log(singleData);
         const {image, features, name, published_in} = singleData
@@ -35,6 +45,9 @@ const showAllData = data =>{
     });
 }
 
+const showAllContent = () =>{
+    fetchData();
+}
 
 
-fetchAllData();
+fetchData(6);
