@@ -23,7 +23,7 @@ body {
 
 .modal-main-div {
     width: 80%;
-    margin: 30px auto 50px;
+    margin: 10px auto 50px;
 }
 
 .price-area {
@@ -52,14 +52,26 @@ body {
 
 .accuracy-box {
     position: absolute;
-    height: 20px;
-    width: 50px;
+    border-radius: 5px;
+    color: white;
+    margin-left: 290px;
+    margin-top: 10px;
+    padding: 3px;
     /* border: 1px solid red;
     background-color: red; */
 }
 
 .overly {
     z-index: 1;
-    margin: 30px;
-    background: #009938;
+    background: linear-gradient(0deg, #EB5757, #EB5757),
+    linear-gradient(0deg, rgba(235, 87, 87, 0.05), rgba(235, 87, 87, 0.05));
+}
+
+.card-body-holder{
+    position: relative;
+    margin-top: 250px;
+}
+
+.col-box-2 .col-box-1 :hover{
+    background-color: red;
 }
