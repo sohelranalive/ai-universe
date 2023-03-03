@@ -6,6 +6,7 @@ body {
 
 .details-arrow {
     color: #EB5757;
+    font-size: 20px;
 }
 
 .details-btn-style {
@@ -13,30 +14,48 @@ body {
     width: 50px;
     border-radius: 50%;
     background-color: #FEF7F7;
-    text-align: center;
-    cursor: pointer;
 }
 
-.details-btn-style:hover {
-    background-color: rgb(228, 204, 204);
-}
-
-
+/* Styles inside the modal */
 .modal-main-div {
-    width: 85%;
-    height: 100%;
-    margin: 10px auto 50px;
+    width: 90%;
+    margin: 0px auto 40px;
+}
+
+.close-symbol{
+    color: white;
+    font-size: 20px;
+}
+
+.close-btn-style{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #EB5757;
+    float: right;
+    margin: -20px;
 }
 
 .price-area {
     background: #FEF7F7;
-    border: 2px solid #EB5757;
+}
+
+.details-area{
+    background: white;
+}
+
+.price-area:hover{
+    border: 1px solid #EB5757;
+}
+
+.details-area:hover{
+    border: 1px solid #EB5757;
 }
 
 .price-box-area {
     text-align: center;
     font-weight: bolder;
-    color: green;
+    color: #EB5757;
 }
 
 .price-box {
@@ -44,3 +63,4 @@ body {
     border-radius: 10px;
     border: 2px solid whitesmoke;
 }
+/* Styles inside the modal End*/
