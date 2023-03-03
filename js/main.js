@@ -80,19 +80,19 @@ const showContentDetails = (data) => {
             <div class="card h-100 price-area">
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div class="pb-4">
-                        <h5 class="card-title fw-bold">${description}</h5>
+                        <h5 class="card-title fw-bold">${description? description : 'no data found'}</h5>
                     </div>
                     <div class="d-flex justify-content-between align-items-center pb-4 price-box-area">
-                        ${pricing.map(element=>
-                        `<div class="w-100 price-box mx-1">${element.price}<br>${element.plan}</div>`
-                        ).join('')}
+                        ${pricing? pricing.map(element=>
+                        `<div class="w-100 price-box mx-1">${element.price && element.price !=0? element.price : 'free'}<br>${element.plan.toLowerCase() === 'free'.toLowerCase()? 'Basic' : element.plan}</div>`
+                        ).join('') : 'No Data Found'}
                     </div>
                     <div class="d-flex">
                         <div class="w-100">Features:
                             <ul>${showDetailsFeatures(features)}</ul>
                         </div>
                         <div class="w-100 ps-2">Integrations:
-                            <ul>${integrations.map(element=>`<li>${element}</li>`).join('')}</ul>
+                            <ul>${integrations?integrations.map(element=>`<li>${element}</li>`).join(''): 'No Data Found'}</ul>
                         </div>
                     </div>
                 </div>
@@ -100,22 +100,18 @@ const showContentDetails = (data) => {
         </div>
         <!-- Inside Modal Image & demo answers Area -->
         <div class="col">
-            <div class="card h-100">
-                <div class="accuracy-box-holder">
-                    <div class="accuracy-box-image"><img src="${image_link[0]?image_link[0]: image_link[1]}"
-                            class="card-img-top" alt="..."></div>
-                            <span>${accuracy.score? `<div class="accuracy-box overly"><small>${accuracy.score} % accuracy</small></div>`: 'no values'}<span>
-                </div>
-                <div class="card-body-holder">
-                <div class="card-body">
-                    <h5 class="card-title text-center mt-3">
-                        ${input_output_examples[0]?input_output_examples[0].input :input_output_examples[1].input}
-                    </h5>
-                    <p class="card-text text-center mt-3">${input_output_examples[0]?input_output_examples[0].output
-                        :input_output_examples[1].output}</p>
-                </div>
+        
+        <div class="card h-100 d-flex">
+        <img src="${image_link[0]?image_link[0]: image_link[1]}" class="card-img-top"
+                    alt="...">
+            <div class="card-body">
+                <div>${input_output_examples?
+                    `<h5 class="card-title text-center mt-3">${input_output_examples[0].input}</h5>
+                    <p class="card-text text-center mt-3">${input_output_examples[0].output}</p>` : 'No Data found'}
                 </div>
             </div>
+        </div>
+
         </div>
     </div>
   `
