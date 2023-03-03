@@ -59,21 +59,36 @@ const contentDetails = (detailsId) => {
 }
 
 const showContentDetails = (data) => {
-    console.log(data);
-    const { description, pricing } = data
+    //console.log(data);
+    const { description, pricing, features, integrations} = data
     const modeContentArea = document.getElementById('modal-content')
     modeContentArea.innerHTML = `
     <div class="row row-cols-1 row-cols-md-2 g-4 modal-main-div">
     <div class="col">
-      <div class="card h-100">
+      <div class="card h-100 price-area">
         <div class="card-body">
-          <div><h6 class="card-title">${description}</h6></div>
+          
+        <div><h6 class="card-title">${description}</h6></div>
+          
+
+        <div class="d-flex justify-content-between align-items-center">
+        ${pricing.map(element=>
+          `<div class="price-box">${element.price}<br>${element.plan}</div>`
+      ).join('')}
+      </div>
+
+
+
+
           <div class="d-flex justify-content-between align-items-center">
-            <div>${pricing[0].plan}</div>
-            <div></div>
-            <div></div>
+          
+          <div>
+          <ul>${showDetailsFeatures(features)}</ul>
           </div>
-          <div></div>
+          <div><ul>${integrations.map(element=>`<li>${element}</li>`).join('')}</ul></div>
+          
+          </div>
+        
         </div>
       </div>
     </div>
@@ -88,6 +103,17 @@ const showContentDetails = (data) => {
     </div>
   </div>
     `
+}
+
+const showDetailsFeatures = (features) =>{
+  let detailFeaturesList = [];
+  for(const key in features){
+    console.log(`${features[key].feature_name}`);
+    detailFeaturesList.push(`<li>${features[key].feature_name}</li>`);
+    // const li = `<li>${features[key].feature_name}</li>`
+    // return li;
+  }
+  return detailFeaturesList.join('');
 }
 
 

@@ -25,3 +25,17 @@ body {
     width: 80%;
     margin: 30px auto 50px;
 }
+
+.price-area{
+    background: #FEF7F7;
+    border: 1px solid #EB5757;
+}
+
+.price-box{
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bolder;
+    color: green;
+}
