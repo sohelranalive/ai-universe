@@ -60,7 +60,7 @@ const contentDetails = (detailsId) => {
 
 const showContentDetails = (data) => {
     //console.log(data);
-    const { description, pricing, features, integrations} = data
+    const { description, pricing, features, integrations, image_link, input_output_examples} = data
     const modeContentArea = document.getElementById('modal-content')
     modeContentArea.innerHTML = `
     <div class="row row-cols-1 row-cols-md-2 g-4 modal-main-div">
@@ -94,10 +94,12 @@ const showContentDetails = (data) => {
     </div>
     <div class="col">
       <div class="card h-100">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="${image_link[0]?image_link[0]: image_link[1]}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a short card.</p>
+          <h5 class="card-title text-center">
+          ${input_output_examples[0]?input_output_examples[0].input :input_output_examples[1].input}
+          </h5>
+          <p class="card-text text-center">${input_output_examples[0]?input_output_examples[0].output :input_output_examples[1].output}</p>
         </div>
       </div>
     </div>
