@@ -1,6 +1,10 @@
 let allFetchedData = [];
 
 const fetchData = async (contentCount) => {
+
+  // Loader spinner start
+  toggleLoader(true)
+
     const url = 'https://openapi.programming-hero.com/api/ai/tools';
     const res = await fetch(url);
     const data = await res.json();
@@ -50,6 +54,8 @@ const showContent = (data, contentCount) => {
           </div>`;
         dataContainer.appendChild(singleDataContainer);
     });
+    // Loader spinner start
+    toggleLoader(false)
 }
 
 const showAllContent = () => {
@@ -135,6 +141,18 @@ document.getElementById('sortByDate').addEventListener('click', function(){
   
   showContent(allFetchedData)
 })
+
+
+const toggleLoader = isLoading =>{
+  const loaderSpinner = document.getElementById('loader')
+  if(isLoading){
+      loaderSpinner.classList.remove('d-none')
+  }
+  else{
+      loaderSpinner.classList.add('d-none')
+  }
+}
+
 
 fetchData(6);
 
