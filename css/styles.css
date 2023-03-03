@@ -64,3 +64,12 @@ body {
     border: 2px solid whitesmoke;
 }
 /* Styles inside the modal End*/
+
+.details-modal-img-div{
+    height: 60%;
+}
+
+.details-modal-text-div{
+    margin-top: 30px;
+    height: 40%;
+}

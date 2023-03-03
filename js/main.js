@@ -77,7 +77,7 @@ const showContentDetails = (data) => {
     `<div class="row row-cols-1 row-cols-md-2 g-4 modal-main-div">
     <!-- Inside Modal Pricing Area -->
     <div class="col">
-        <div class="card h-100 price-area">
+        <div class="card h-100 p-2 price-area">
             <div class="card-body d-flex flex-column justify-content-between">
                 <div class="pb-4">
                     <h5 class="card-title fw-bold">${description ? description : 'no data found'}</h5>
@@ -102,20 +102,24 @@ const showContentDetails = (data) => {
     </div>
     <!-- Inside Modal Image & demo answers Area -->
     <div class="col">
-        <div class="card h-100 details-area">
-            <img src="${image_link[0] ? image_link[0] : image_link[1]}" class="card-img-top" alt="...">
+  
 
-            <div class="mask text-white " style="background-color: rgba(0, 0, 0, 0.5); margin-top: -100px">
-              <p class="">paragraph</p>
-            </div>
+    <div class="card h-100 p-3">
+  <div class="d-flex flex-column justify-content-between align-items-center">
+    <div class="details-modal-img-div">
+        <img src="${image_link[0] ? image_link[0] : image_link[1]}" class="card-img-top" alt="...">
+        <span>Accuracy</span>
+    </div>
+    <div class="details-modal-text-div">
+      <div>${input_output_examples ?
+        `<h5 class="card-title text-center mt-3">${input_output_examples[0].input}</h5>
+        <p class="card-text text-center mt-3">${input_output_examples[0].output}</p>` : 'No Data found'}
+      </div>
+    </div>
+  </div>
+</div>
 
-            <div class="card-body">
-                <div>${input_output_examples ?
-      `<h5 class="card-title text-center mt-3">${input_output_examples[0].input}</h5>
-                    <p class="card-text text-center mt-3">${input_output_examples[0].output}</p>` : 'No Data found'}
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>`
 }
