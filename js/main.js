@@ -66,27 +66,26 @@ const showContentDetails = (data) => {
     <div class="row row-cols-1 row-cols-md-2 g-4 modal-main-div">
     <div class="col">
       <div class="card h-100 price-area">
-        <div class="card-body">
+        <div class="card-body d-flex flex-column justify-content-between">
           
-        <div><h6 class="card-title">${description}</h6></div>
+              <div class="pb-4"><h5 class="card-title fw-bold">${description}</h5></div>
           
 
-        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center pb-4 price-box-area">
         ${pricing.map(element=>
-          `<div class="price-box">${element.price}<br>${element.plan}</div>`
+          `<div class="w-100 price-box mx-1">${element.price}<br>${element.plan}</div>`
       ).join('')}
       </div>
 
 
 
 
-          <div class="d-flex justify-content-between align-items-center">
-          
-          <div>
+          <div class="d-flex">
+          <div class="w-100">Features: 
           <ul>${showDetailsFeatures(features)}</ul>
           </div>
-          <div><ul>${integrations.map(element=>`<li>${element}</li>`).join('')}</ul></div>
-          
+          <div class="w-100 ps-2">Integrations: 
+          <ul>${integrations.map(element=>`<li>${element}</li>`).join('')}</ul></div>
           </div>
         
         </div>
@@ -94,12 +93,17 @@ const showContentDetails = (data) => {
     </div>
     <div class="col">
       <div class="card h-100">
-        <img src="${image_link[0]?image_link[0]: image_link[1]}" class="card-img-top" alt="...">
+        
+      <div class="accuracy-box-holder">
+          <div class="accuracy-box-image"><img src="${image_link[0]?image_link[0]: image_link[1]}" class="card-img-top" alt="..."></div>
+          <div class="accuracy-box overly">AAA</div>
+      </div>
+        
         <div class="card-body">
-          <h5 class="card-title text-center">
+          <h5 class="card-title text-center mt-3">
           ${input_output_examples[0]?input_output_examples[0].input :input_output_examples[1].input}
           </h5>
-          <p class="card-text text-center">${input_output_examples[0]?input_output_examples[0].output :input_output_examples[1].output}</p>
+          <p class="card-text text-center mt-3">${input_output_examples[0]?input_output_examples[0].output :input_output_examples[1].output}</p>
         </div>
       </div>
     </div>
@@ -120,3 +124,14 @@ const showDetailsFeatures = (features) =>{
 
 
 fetchData(6);
+
+
+
+// // This function will return random color
+// function randomColor() {
+//   let color = [];
+//   for (let i = 0; i < 3; i++) {
+//       color.push(Math.floor(Math.random() * 256));
+//   }
+//   return 'rgb(' + color.join(', ') + ')';
+// }

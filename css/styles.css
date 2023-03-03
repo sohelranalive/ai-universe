@@ -4,7 +4,7 @@ body {
     font-family: 'Work Sans', sans-serif;
 }
 
-.details-btn-style{
+.details-btn-style {
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -13,29 +13,53 @@ body {
     cursor: pointer;
 }
 
-.details-btn-style:hover{
+.details-btn-style:hover {
     background-color: rgb(228, 204, 204);
 }
 
-.details-arrow{
+.details-arrow {
     color: #EB5757;
 }
 
-.modal-main-div{
+.modal-main-div {
     width: 80%;
     margin: 30px auto 50px;
 }
 
-.price-area{
+.price-area {
     background: #FEF7F7;
     border: 1px solid #EB5757;
 }
 
-.price-box{
+.price-box-area {
     text-align: center;
-    background-color: white;
-    border-radius: 10px;
-    padding: 5px;
     font-weight: bolder;
     color: green;
+}
+
+.price-box {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.accuracy-box-holder {
+    position: relative;
+}
+
+.accuracy-box-image {
+    position: absolute;
+}
+
+.accuracy-box {
+    position: absolute;
+    height: 20px;
+    width: 50px;
+    /* border: 1px solid red;
+    background-color: red; */
+}
+
+.overly {
+    z-index: 1;
+    margin: 30px;
+    background: #009938;
 }
