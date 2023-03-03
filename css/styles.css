@@ -66,10 +66,24 @@ body {
 /* Styles inside the modal End*/
 
 .details-modal-img-div{
-    height: 60%;
+   width: 100%;
+   height: 60%;
+}
+
+.img-size{
+    height: 100%;
+    width: 100%;
 }
 
 .details-modal-text-div{
-    margin-top: 30px;
+    width: 100%;
     height: 40%;
+}
+
+.accuracy-banner{
+    position: absolute;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #EB5757;
 }

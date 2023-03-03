@@ -105,19 +105,19 @@ const showContentDetails = (data) => {
   
 
     <div class="card h-100 p-3">
-  <div class="d-flex flex-column justify-content-between align-items-center">
-    <div class="details-modal-img-div">
-        <img src="${image_link[0] ? image_link[0] : image_link[1]}" class="card-img-top" alt="...">
-        <span>Accuracy</span>
-    </div>
-    <div class="details-modal-text-div">
-      <div>${input_output_examples ?
-        `<h5 class="card-title text-center mt-3">${input_output_examples[0].input}</h5>
-        <p class="card-text text-center mt-3">${input_output_examples[0].output}</p>` : 'No Data found'}
+    <div class="d-flex flex-column justify-content-between align-items-center h-100">
+      <div class="details-modal-img-div">
+      <div>${accuracy.score? `<div class="accuracy-banner">${accuracy.score} % accuracy</div>`: ''}</div>
+        <img src="${image_link[0] ? image_link[0] : image_link[1]}" class="card-img-top img-size" alt="...">
+      </div>
+      <div class="details-modal-text-div">
+        <div class="pt-4">${input_output_examples ?
+          `<h5 class="card-title text-center">${input_output_examples[0].input}</h5>
+          <p class="card-text text-center">${input_output_examples[0].output}</p>` : 'No Data found'}
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
     </div>
