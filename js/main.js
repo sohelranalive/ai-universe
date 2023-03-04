@@ -43,7 +43,7 @@ const showContent = (data, contentCount) => {
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <h5 class="fw-bold">${name}</h5>
-                    <small class="text-muted">${published_in}</small>
+                    <small class="text-muted"><i class="fa-solid fa-calendar-days"></i> ${published_in}</small>
                 </div>
                 <div>
                 <button onclick="contentDetails('${id}')" type="button" class="btn btn-light details-btn-style" data-bs-toggle="modal" data-bs-target="#contentDetailsModal">
