@@ -156,14 +156,3 @@ const toggleLoader = isLoading => {
 
 // fetched data on page load
 fetchData(6);
-
-
-
-// This function will return random color
-// function randomColor() {
-//   let color = [];
-//   for (let i = 0; i < 3; i++) {
-//       color.push(Math.floor(Math.random() * 256));
-//   }
-//   return 'rgb(' + color.join(', ') + ')';
-// }
