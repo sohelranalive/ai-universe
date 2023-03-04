@@ -1,7 +1,6 @@
 let allFetchedData = [];
 
 const fetchData = async (contentCount) => {
-
   // Loader spinner start
   toggleLoader(true)
 
@@ -16,9 +15,7 @@ const showContent = (data, contentCount) => {
   dataContainer.innerText = '';
   const showAll = document.getElementById('show-all');
 
-  allFetchedData = data;
-
-  if (contentCount && data.length > 6) {
+  if (data.length >= 6 && contentCount) {
     data = data.slice(0, 6);
     showAll.classList.remove('d-none')
   }
@@ -56,6 +53,7 @@ const showContent = (data, contentCount) => {
   });
   // Loader spinner start
   toggleLoader(false)
+  allFetchedData = data;
 }
 
 const showAllContent = () => {
@@ -107,12 +105,12 @@ const showContentDetails = (data) => {
     <div class="card h-100 p-3">
     <div class="d-flex flex-column justify-content-between align-items-center h-100">
       <div class="details-modal-img-div">
-      <div>${accuracy.score? `<div class="accuracy-banner">${accuracy.score} % accuracy</div>`: ''}</div>
+      <div>${accuracy.score ? `<div class="accuracy-banner">${accuracy.score} % accuracy</div>` : ''}</div>
         <img src="${image_link[0] ? image_link[0] : image_link[1]}" class="card-img-top img-size" alt="...">
       </div>
       <div class="details-modal-text-div">
         <div class="pt-4">${input_output_examples ?
-          `<h5 class="card-title text-center">${input_output_examples[0].input}</h5>
+      `<h5 class="card-title text-center">${input_output_examples[0].input}</h5>
           <p class="card-text text-center">${input_output_examples[0].output}</p>` : 'No Data found'}
         </div>
       </div>
@@ -133,18 +131,15 @@ const showDetailsFeatures = (features) => {
   return detailFeaturesList.join('');
 }
 
-document.getElementById('sortByDate').addEventListener('click', function () {
-  const sortByDate = allFetchedData => {
-    const sorter = (a, b) => {
-      return new Date(a.published_in) - new Date(b.published_in);
-    }
-    allFetchedData.sort(sorter);
-  };
-  sortByDate(allFetchedData);
-
-  showContent(allFetchedData)
-})
-
+const sortDataByDate = () => {
+  allFetchedData.sort((obj1, obj2) => new Date(obj1.published_in) - new Date(obj2.published_in))
+  if (allFetchedData.length === 6) {
+    showContent(allFetchedData, allFetchedData.length);
+  }
+  else {
+    showContent(allFetchedData);
+  }
+}
 
 const toggleLoader = isLoading => {
   const loaderSpinner = document.getElementById('loader')
@@ -155,7 +150,6 @@ const toggleLoader = isLoading => {
     loaderSpinner.classList.add('d-none')
   }
 }
-
 
 fetchData(6);
 
