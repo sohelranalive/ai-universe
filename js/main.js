@@ -108,7 +108,7 @@ const showContentDetails = (data) => {
     <div class="card h-100 p-3 details-area overflow-auto">
     <div class="d-md-flex flex-column justify-content-between align-items-center h-100">
       <div class="details-modal-img-div">
-      <div class="accuracy-banner">${accuracy.score ? `<small>${accuracy.score} % accuracy</small>` : ''}</div>
+      <div class="accuracy-banner">${accuracy.score ? `<small>${accuracy.score*100} % accuracy</small>` : ''}</div>
         <img src="${image_link[0] ? image_link[0] : image_link[1]}" class="card-img-top img-size" alt="...">
       </div>
       <div class="details-modal-text-div">
