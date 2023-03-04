@@ -85,12 +85,15 @@ const showContentDetails = (data) => {
                 <div class="pb-4">
                     <h5 class="card-title fw-bold">${description ? description : 'no data found'}</h5>
                 </div>
-                <div class="d-md-flex justify-content-between align-items-center pb-4 price-box-area">
-                    ${pricing ? pricing.map(element =>
-      `<div class="w-100 price-box mx-1">${element.price && element.price != 0 ? element.price :
-        'free'}<br>${element.plan.toLowerCase() === 'free'.toLowerCase() ? 'Basic' : element.plan}</div>`
-    ).join('') : 'No Data Found'}
+                
+                <div class="d-md-flex justify-content-between align-items-center pb-2 price-box-area">
+                <div class="price-box color1">${pricing? `${pricing[0].price != 0 ? pricing[0].price:'No Cost'}<br>${pricing[0].plan === 'Basic'? pricing[0].plan:'Basic'}` :'No Data'}</div>
+
+                <div class="price-box color2">${pricing? `${pricing[1].price != 0 ? pricing[1].price:'No Cost'}<br>${pricing[1].plan}` :'No Data'}</div>
+
+                <div class="price-box color3">${pricing? `${pricing[2].price != 0 ? pricing[2].price:'No Cost'}<br>${pricing[2].plan}` :'No Data'}</div>
                 </div>
+                
                 <div class="d-md-flex">
                     <div class="w-100">Features:
                         <ul>${showDetailsFeatures(features)}</ul>
