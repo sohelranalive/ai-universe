@@ -1,5 +1,7 @@
 let allFetchedData = [];
 
+
+// fetched all data from API
 const fetchData = async (contentCount) => {
   // Loader spinner start
   toggleLoader(true)
@@ -10,6 +12,7 @@ const fetchData = async (contentCount) => {
   showContent(data.data.tools, contentCount);
 }
 
+// show data faced from API
 const showContent = (data, contentCount) => {
   const dataContainer = document.getElementById('data-container');
   dataContainer.innerText = '';
@@ -56,10 +59,12 @@ const showContent = (data, contentCount) => {
   allFetchedData = data;
 }
 
+// show all data
 const showAllContent = () => {
   fetchData();
 }
 
+// fetched single data details as per content id
 const contentDetails = (detailsId) => {
   const url = `https://openapi.programming-hero.com/api/ai/tool/${detailsId}`
   fetch(url)
@@ -67,26 +72,26 @@ const contentDetails = (detailsId) => {
     .then(data => showContentDetails(data.data))
 }
 
+// Show single data details as per content id
 const showContentDetails = (data) => {
-  //console.log(data);
   const { description, pricing, features, integrations, image_link, input_output_examples, accuracy } = data
   const modeContentArea = document.getElementById('modal-content')
   modeContentArea.innerHTML =
     `<div class="row row-cols-1 row-cols-md-2 g-4 modal-main-div">
     <!-- Inside Modal Pricing Area -->
     <div class="col">
-        <div class="card h-100 p-2 price-area">
-            <div class="card-body d-flex flex-column justify-content-between">
+        <div class="card h-100 p-2 price-area overflow-auto">
+            <div class="card-body d-md-flex flex-column justify-content-between">
                 <div class="pb-4">
                     <h5 class="card-title fw-bold">${description ? description : 'no data found'}</h5>
                 </div>
-                <div class="d-flex justify-content-between align-items-center pb-4 price-box-area">
+                <div class="d-md-flex justify-content-between align-items-center pb-4 price-box-area">
                     ${pricing ? pricing.map(element =>
       `<div class="w-100 price-box mx-1">${element.price && element.price != 0 ? element.price :
         'free'}<br>${element.plan.toLowerCase() === 'free'.toLowerCase() ? 'Basic' : element.plan}</div>`
     ).join('') : 'No Data Found'}
                 </div>
-                <div class="d-flex">
+                <div class="d-md-flex">
                     <div class="w-100">Features:
                         <ul>${showDetailsFeatures(features)}</ul>
                     </div>
@@ -100,10 +105,8 @@ const showContentDetails = (data) => {
     </div>
     <!-- Inside Modal Image & demo answers Area -->
     <div class="col">
-  
-
-    <div class="card h-100 p-3">
-    <div class="d-flex flex-column justify-content-between align-items-center h-100">
+    <div class="card h-100 p-3 details-area overflow-auto">
+    <div class="d-md-flex flex-column justify-content-between align-items-center h-100">
       <div class="details-modal-img-div">
       <div class="accuracy-banner">${accuracy.score ? `<small>${accuracy.score} % accuracy</small>` : ''}</div>
         <img src="${image_link[0] ? image_link[0] : image_link[1]}" class="card-img-top img-size" alt="...">
@@ -116,23 +119,22 @@ const showContentDetails = (data) => {
       </div>
     </div>
   </div>
-
-
     </div>
 </div>`
 }
 
+// iterate features array and return data
 const showDetailsFeatures = (features) => {
   let detailFeaturesList = [];
   for (const key in features) {
-    console.log(`${features[key].feature_name}`);
     detailFeaturesList.push(`<li>${features[key].feature_name}</li>`);
   }
   return detailFeaturesList.join('');
 }
 
-const sortDataByDate = () => {
-  allFetchedData.sort((obj1, obj2) => new Date(obj1.published_in) - new Date(obj2.published_in))
+// Sort all data ascending order
+function sortDataByDate() {
+  allFetchedData.sort((obj1, obj2) => new Date(obj1.published_in) - new Date(obj2.published_in));
   if (allFetchedData.length === 6) {
     showContent(allFetchedData, allFetchedData.length);
   }
@@ -141,6 +143,7 @@ const sortDataByDate = () => {
   }
 }
 
+// Loader/Spinner function
 const toggleLoader = isLoading => {
   const loaderSpinner = document.getElementById('loader')
   if (isLoading) {
@@ -151,7 +154,10 @@ const toggleLoader = isLoading => {
   }
 }
 
+// fetched data on page load
 fetchData(6);
+
+
 
 // This function will return random color
 // function randomColor() {
